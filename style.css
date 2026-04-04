@@ -1,0 +1,98 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: Nunito Sans;
+    min-height: 100vh;
+     background-color:  hsl(0, 18%, 92%);
+    
+    
+ }
+.size-box{
+    
+   max-width: 1400px;
+   margin-inline: auto ;
+   margin-top: 26px;
+  
+  
+}
+.head{
+   
+    max-width: 1400px;
+    margin-inline: auto;
+   display: flex;
+   justify-content: space-between;
+  
+   align-items: center;
+   
+}
+.header-container{
+     padding-inline: 24px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.head span{
+    font-size: 22px;
+    font-weight: 500;
+}
+.title{
+   
+    font-weight: 800;
+}
+.search-filter{
+    display: flex;
+    justify-content: space-between;
+     align-items: center;
+     
+}
+.search{
+    border: 2px solid black;
+  height: 38px;
+  width: 256px;
+   background-color: blueviolet;
+
+    
+}
+.search input{
+        font-size: 18px;
+    font-weight: 400;
+ border: none;
+ width: 90%;
+ height: 100%;
+ padding: 12px ;
+
+}
+.country-container{
+    max-width: 1400px;
+    margin-inline: auto;
+    margin-top: 32px;
+    display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card{
+ transition: all 0.2s ease-in-out;
+    display: inline-block;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.card:hover{
+    transform:scale(1.03) ;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+ a{
+    text-decoration-line:none ;
+    color: inherit;
+}
+.image img{
+    width: 100%;
+    border-top-left-radius: 12px;
+     border-top-right-radius: 12px;
+}
+.data-country {
+  padding-left: 16px;
+  padding-bottom: 14px;
+}
