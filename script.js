@@ -6,6 +6,7 @@ fetch('https://restcountries.com/v3.1/all?fields=flags,name,capital,currencies,p
 .then((data)=>{
    data.forEach((country)=>{
         const countryCard = document.createElement('a');
+        countryCard.href =`/country.html?name=${country.name.common}`;
  countryCard.classList.add('card');
 
  const imageContainer = document.createElement('div');
