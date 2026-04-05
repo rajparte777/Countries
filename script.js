@@ -1,7 +1,7 @@
  const countryContainer = document.querySelector('.country-container')
 
 
-fetch('https://restcountries.com/v3.1/all?fields=flags,name,capital,currencies,population,region,capital')
+fetch('https://restcountries.com/v3.1/independent?status=true')
 .then((res)=>res.json())
 .then((data)=>{
    data.forEach((country)=>{
