@@ -5,6 +5,11 @@ fetch('https://restcountries.com/v3.1/independent?status=true')
 .then((res)=>res.json())
 .then((data)=>{
    data.forEach((country)=>{
+    // console.log([country]);
+  
+
+
+    
         const countryCard = document.createElement('a');
         countryCard.href =`/country.html?name=${country.name.common}`;
  countryCard.classList.add('card');
