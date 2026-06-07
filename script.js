@@ -5,7 +5,7 @@ fetch('https://restcountries.com/v3.1/independent?status=true')
 .then((res)=>res.json())
 .then((data)=>{
    data.forEach((country)=>{
-    // console.log([country]);
+    // console.log([country.borders]);
   
 
 

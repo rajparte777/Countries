@@ -10,13 +10,13 @@ const capital =document.querySelector('.capital');
 const topLevelDomain =document.querySelector('.topLevelDomain');
 const currencies =document.querySelector('.currencies');
 const language =document.querySelector('.language');
-
+const borderCountry =document.querySelector('.country-detail-3');
 
 fetch(`https://restcountries.com/v3.1/name/${countryNameUrl}?fullText=true`)
 .then((res) => res.json())
 .then(([country]) => {
 // console.log([country])
-console.log(country.currencies);
+// console.log(country.currencies);
   flagContainer.src =country.flags.svg;
 countryNameh1.innerText =country.name.common
 
@@ -38,44 +38,26 @@ if(country.currencies){
 
 if(country.languages){
 language.innerText = Object.values(country.languages).join(' , ')
-
 }
 
 
+if(country.borders){
+    country.borders.forEach((borders) => {
+  fetch(`https://restcountries.com/v3.1/alpha/${borders}`).
+  then((res) => res.json()).
+  then(([borderCountryData]) =>{
+const borderCountryTag = document.createElement('a')
 
+  borderCountryTag.innerText= borderCountryData.name.common
+  borderCountryTag.href =`country.html?name=${borderCountryData.name.common}`
+  // console.log(borderCountryTag);
+ borderCountry.append(borderCountryTag)
+  }
+    );
+})
 
-
-
-  //  sizeBox.innerHTML =`
-   
-  //      <section>
-  //      <div class="counnrty-container">
-  //        <div class="imgCountainer">
-  //              <img src="https://flagcdn.com/ck.svg", alt="">
-  //      </div>
-  //      <div class="country-detail-1">
-  //       <h2>${country.name.common}</h2>
-  //       <p><b>Native Name :</b></p>
-  //       <p><b>Population :</b></p>
-  //       <p><b>Region :</b></p>
-  //       <p><b>Sub Region :</b></p>
-  //       <p><b>Capital :</b></p>
-  //      </div>
-  //    <div class="country-detail-2">
-  //        <p><b>Top Level Domain :</b></p>
-  //       <p><b>Currencies :</b></p>
-  //       <p><b>Language :</b></p>
-  //    </div>
-    
-  //      </div>
-  //      <div class="country-detail-3">
-  //         <p><b>Border Countries :</b></p>
-  //         <span><button>France</button>
-  //       <button>German</button>
-  //   <button>netharland</button></span>
-  //      </div>
-       
-  //      </section>`
+}
 
         
+
 })
