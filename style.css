@@ -66,19 +66,24 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .search{
     height: 48px;
     width: 350px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
-    padding-left: 24px;
+    
 }
 
 .search span{
     display: flex;
     align-items: center;
     height: 100%;
+    background-color: #ffffff;
+    padding-left: 24px;
+    border-radius: 4px;
 }
 
 .search input{
@@ -89,6 +94,7 @@ body{
     height: 100%;
     padding: 12px;
     outline: none;
+      
 }
 .search input::placeholder{
     color: #999;
@@ -131,3 +137,20 @@ body{
   padding-left: 16px;
   padding-bottom: 14px;
 }
+.filter-by-region{
+ width: 220px;
+ padding: 6px 16px;
+ border: none;
+ outline: none;
+ box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
+font-size: 16px;
+border-radius: 4px;
+}
+/* @media (max-width : 400px){
+
+    .filter-by-region{
+    width: 120px;
+ padding: 4px 12px;
+    }
+
+} */
