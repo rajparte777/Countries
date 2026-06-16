@@ -189,3 +189,16 @@ body {
          flex-direction: start;
     }
 }
+
+body.dark {
+    background-color: #202c37;
+    color: white;
+}
+
+body.dark .title a {
+    color: white;
+}
+
+body.dark .country-detail-3 a {
+  color: white;
+}

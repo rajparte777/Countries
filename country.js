@@ -12,6 +12,12 @@ const currencies =document.querySelector('.currencies');
 const language =document.querySelector('.language');
 const borderCountry =document.querySelector('.country-detail-3');
 
+const darkMode =document.querySelector('.darkMode')
+const title =document.querySelector('.title a')
+const searchSymbol =document.querySelector('#searchSymbol')
+const sunImg =document.querySelector('#sunImg')
+
+
 fetch(`https://restcountries.com/v3.1/name/${countryNameUrl}?fullText=true`)
 .then((res) => res.json())
 .then(([country]) => {
@@ -61,3 +67,16 @@ const borderCountryTag = document.createElement('a')
         
 
 })
+
+
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+
+    if (document.body.classList.contains('dark')) {
+        sunImg.classList.replace('fa-moon', 'fa-sun');
+        sunImg.classList.replace('fa-regular', 'fa-solid');
+    } else {
+        sunImg.classList.replace('fa-sun', 'fa-moon');
+        sunImg.classList.replace('fa-solid', 'fa-regular');
+    }
+});
