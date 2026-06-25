@@ -57,7 +57,8 @@ if(country.borders){
 const borderCountryTag = document.createElement('a')
 
   borderCountryTag.innerText= borderCountryData.name.common
-  borderCountryTag.href =`country.html?name=${borderCountryData.name.common}`
+  borderCountryTag.href = `./country.html?name=${encodeURIComponent(borderCountryData.name.common)}`
+  // borderCountryTag.href =`country.html?name=${borderCountryData.name.common}`
   // console.log(borderCountryTag);
  borderCountry.append(borderCountryTag)
   }

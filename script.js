@@ -34,7 +34,8 @@ function renderCountriesData(data){
      countryContainer.innerText =''
    data.forEach((country)=>{
   const countryCard = document.createElement('a');
-        countryCard.href =`/country.html?name=${country.name.common}`;
+        // countryCard.href =`/country.html?name=${country.name.common}`;
+        countryCard.href = `./country.html?name=${encodeURIComponent(country.name.common)}`;
  countryCard.classList.add('card');
 
  const imageContainer = document.createElement('div');
