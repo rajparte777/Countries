@@ -1,4 +1,5 @@
-const countryNameUrl = new URLSearchParams(window.location.search).get('name');
+// const countryNameUrl = new URLSearchParams(window.location.search).get('name');
+const countryNameUrl =decodeURIComponent(new URLSearchParams(window.location.search).get('name'));
 const sizeBox =document.querySelector('.size-box');
 const flagContainer =document.querySelector('.imgCountainer img');
 const countryNameh1 =document.querySelector('.country-detail-1 h1');
@@ -36,7 +37,8 @@ population.innerText =country.population.toLocaleString('en-In')
  
 region.innerText = country.region
 subregion.innerText =(country.subregion)
-capital.innerText = country.capital
+// capital.innerText = country.capital
+capital.innerText = country.capital?.join(', ') || 'N/A';
 topLevelDomain.innerText = country.tld.join('  ,  ')
 if(country.currencies){
   currencies.innerText =( Object.values(country.currencies).map((currency) => currency.name).join(' , '));
@@ -68,15 +70,48 @@ const borderCountryTag = document.createElement('a')
 
 })
 
+const modeText = document.querySelector('.darkMode span');
+
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+
+    if (sunImg) {
+        sunImg.classList.remove('fa-regular', 'fa-moon');
+        sunImg.classList.add('fa-solid', 'fa-sun');
+    }
+
+    if (modeText) {
+        modeText.innerText = 'Light Mode';
+    }
+}
 
 darkMode.addEventListener('click', () => {
     document.body.classList.toggle('dark');
 
     if (document.body.classList.contains('dark')) {
-        sunImg.classList.replace('fa-moon', 'fa-sun');
-        sunImg.classList.replace('fa-regular', 'fa-solid');
+        localStorage.setItem('theme', 'dark');
+
+        sunImg.classList.remove('fa-regular', 'fa-moon');
+        sunImg.classList.add('fa-solid', 'fa-sun');
+
+        modeText.innerText = 'Light Mode';
     } else {
-        sunImg.classList.replace('fa-sun', 'fa-moon');
-        sunImg.classList.replace('fa-solid', 'fa-regular');
+        localStorage.setItem('theme', 'light');
+
+        sunImg.classList.remove('fa-solid', 'fa-sun');
+        sunImg.classList.add('fa-regular', 'fa-moon');
+
+        modeText.innerText = 'Dark Mode';
     }
 });
+// darkMode.addEventListener('click', () => {
+//     document.body.classList.toggle('dark');
+
+//     if (document.body.classList.contains('dark')) {
+//         sunImg.classList.replace('fa-moon', 'fa-sun');
+//         sunImg.classList.replace('fa-regular', 'fa-solid');
+//     } else {
+//         sunImg.classList.replace('fa-sun', 'fa-moon');
+//         sunImg.classList.replace('fa-solid', 'fa-regular');
+//     }
+// });

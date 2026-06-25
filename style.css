@@ -162,6 +162,98 @@ border-radius: 4px;
     background-color: hsl(207, 26%, 17%);
     color: white;
  }
- .dark title{
-    color: #ffffff;
- }
+ .dark .title{
+    color: white;
+}
+.dark .card{
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+}
+.dark .header-container{
+    background-color: hsl(209, 23%, 22%);
+}
+.dark .search span,
+.dark .filter-by-region{
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+}
+
+.dark .search input{
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+}
+
+.dark .search input::placeholder{
+    color: #ddd;
+}
+
+@media (max-width: 768px) {
+
+    .head{
+        padding: 0 12px;
+    }
+
+    .title{
+        font-size: 16px;
+    }
+
+    .head span{
+        font-size: 14px;
+    }
+
+    .search-filter{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .search{
+        width: 100%;
+    }
+
+    .filter-by-region{
+        width: 200px;
+    }
+
+    .country-container{
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .card{
+        width: 280px;
+    }
+
+    .size-box{
+        padding-inline: 16px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .title{
+        font-size: 14px;
+    }
+
+    .head span{
+        font-size: 12px;
+    }
+
+    .search{
+        width: 100%;
+    }
+
+    .filter-by-region{
+        width: 180px;
+    }
+
+    .card{
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .country-container{
+        justify-content: center;
+    }
+}

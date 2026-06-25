@@ -5,6 +5,8 @@ const darkMode =document.querySelector('.darkMode')
 const title =document.querySelector('.title')
 const searchSymbol =document.querySelector('#searchSymbol')
 const sunImg =document.querySelector('#sunImg')
+const head = document.querySelector('.head')
+const mode = document.querySelector('.mode')
 
 let allCountriesData
 
@@ -73,31 +75,33 @@ console.log(filterCountries);
 renderCountriesData(filterCountries)
 })
 
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
 
+    sunImg.classList.remove('fa-regular', 'fa-moon');
+    sunImg.classList.add('fa-solid', 'fa-sun');
 
-
-darkMode.addEventListener('click', ()=>{
-     document.body.classList.toggle('dark')
-        if (document.body.classList.contains('dark')) {
-        title.style.color = 'white';
-        searchSymbol.style.color = 'black';
-         sunImg.classList.remove('fa-regular', 'fa-moon');
-        sunImg.classList.add('fa-solid', 'fa-sun');
-
- 
-    } else {
-        title.style.color = 'black';
-       sunImg.classList.remove('fa-solid', 'fa-sun');
-        sunImg.classList.add('fa-regular', 'fa-moon');
-
-        countryCard.style.boxShadow =
-        'rgb(249, 249, 249) 0px 1px 2px, rgba(249, 246, 246, 0.93) 0px 2px 6px';
+    if(mode){
+        mode.innerText = 'Light Mode';
     }
+}
+darkMode.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
 
+    if (document.body.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
 
+        sunImg.classList.remove('fa-regular', 'fa-moon');
+        sunImg.classList.add('fa-solid', 'fa-sun');
+        mode.innerText = 'Light Mode';
+    } else {
+        localStorage.setItem('theme', 'light');
 
-})
-
+        sunImg.classList.remove('fa-solid', 'fa-sun');
+        sunImg.classList.add('fa-regular', 'fa-moon');
+        mode.innerText = 'Dark Mode';
+    }
+});
 
 
 
